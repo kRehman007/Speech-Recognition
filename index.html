@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Speech Recognition Project</title> 
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+        <div>
+            <h1>Voice Recognition</h1>
+            <textarea placeholder="Your Voice Message is here." id="text"></textarea>
+            <button onclick="record()">Click to Speak</button>
+        </div>
+
+        </div>
+
+    <script>
+        function record(){
+
+       let recognition= new webkitSpeechRecognition();
+       recognition.lang="en-GB";
+       
+       
+       recognition.onresult = function(eve){
+        document.write('hello');
+        document.getElementById('text').value=eve.results[0][0].transcript;
+       
+       }
+       recognition.start();
+
+        }
+    </script>
+    </body>
+</html>
